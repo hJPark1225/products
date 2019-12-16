@@ -22,7 +22,7 @@ public class ProductController {
         return  this.productService.getProductById(productId);
     }
     @GetMapping("/item/{productId}")
-    Product productStockCheck(@PathVariable(value = "productId") Long productId) {
+    Product productStockCheck1(@PathVariable(value = "productId") Long productId) {
 
         System.out.println("productStockCheck call");
         try {
