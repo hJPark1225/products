@@ -9,6 +9,18 @@ public class ProductController {
     @Autowired
     ProductService productService;
 
+    @GetMapping("/product/{productId}")
+    Product productStockCheck(@PathVariable(value = "productId") Long productId) {
+
+        System.out.println("productStockCheck call");
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return  this.productService.getProductById(productId);
+    }
     @GetMapping("/item/{productId}")
     Product productStockCheck(@PathVariable(value = "productId") Long productId) {
 
@@ -21,7 +33,6 @@ public class ProductController {
 
         return  this.productService.getProductById(productId);
     }
-
     @PostMapping("/product")
     Product productInsert(@RequestBody String data) {
         System.out.println(data);
